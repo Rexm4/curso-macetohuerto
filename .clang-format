@@ -79,5 +79,5 @@ SpacesInContainerLiterals: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
 Standard: c++11
-TabWidth: 4
+TabWidth: 8
 UseTab: Always
