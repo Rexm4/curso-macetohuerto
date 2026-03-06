@@ -7,19 +7,28 @@
 
 void app_main() {
 
+  /*
+  while (1) {
+    scanner_scan();
+    vTaskDelay(pdMS_TO_TICKS(1000));
+  }
+  */
+
   vTaskDelay(pdMS_TO_TICKS(3000));
 
   SystemDevs* sysDevs = system_init();
 
   SensorConfig sensorsconfig;
   sensorsconfig.bmeDev = sysDevs->bme;
+  sensorsconfig.adsDev = sysDevs->ads;
   sensors_init(&sensorsconfig);
 
   SensorData data;
   for (;;) {
     sensors_update(&data);
 
-    printf("Read data: %.2f, %.2f, %.2f\n", data.bme.pressure, data.bme.humidity, data.bme.airTemp);
+    //printf("Read data: %.2f, %.2f, %.2f\n", data.bme.pressure, data.bme.humidity, data.bme.airTemp);
+    printf("ADC: %d\n", data.adcValue);
     //..
 
     comms_send();

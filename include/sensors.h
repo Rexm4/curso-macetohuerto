@@ -5,6 +5,7 @@
 
 typedef struct {
   i2c_master_dev_handle_t bmeDev;
+  i2c_master_dev_handle_t adsDev;
 } SensorConfig;
 
 typedef struct {
@@ -13,6 +14,7 @@ typedef struct {
     float humidity;
     float airTemp;
   } bme;
+  uint16_t adcValue;
 } SensorData;
 
 void sensors_init(SensorConfig* config);
