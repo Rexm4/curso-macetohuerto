@@ -57,6 +57,7 @@ typedef enum {
 typedef struct {
   uint8_t isInitialized;
   Ads1115Hal hal;
+  Ads1115Fsr currentFsr;
 } Ads1115;
 
 typedef struct {
@@ -69,6 +70,7 @@ typedef struct {
 int32_t ads1115_init(Ads1115* ads);
 int32_t ads1115_config(Ads1115* ads, Ads1115Config* config);
 
-uint16_t ads1115_readRaw(Ads1115* ads);
+int16_t ads1115_readRaw(Ads1115* ads);
+float ads1115_readVolts(Ads1115* ads);
 
 #endif  //ADS1115_H__
