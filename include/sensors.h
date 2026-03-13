@@ -14,7 +14,8 @@ typedef struct {
     float humidity;
     float airTemp;
   } bme;
-  float adcValueV;
+  float adcLDR;
+  float adcHumidity;
 } SensorData;
 
 void sensors_init(SensorConfig* config);

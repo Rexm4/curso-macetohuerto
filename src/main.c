@@ -11,8 +11,7 @@ void app_main() {
   while (1) {
     scanner_scan();
     vTaskDelay(pdMS_TO_TICKS(1000));
-  }
-  */
+  }*/
 
   vTaskDelay(pdMS_TO_TICKS(3000));
 
@@ -27,8 +26,8 @@ void app_main() {
   for (;;) {
     sensors_update(&data);
 
-    printf("Read data: %.2f, %.2f, %.2f\n", data.bme.pressure, data.bme.humidity, data.bme.airTemp);
-    printf("ADC: %.4f\n", data.adcValueV);
+    //printf("P: %.2f H: %.2f T: %.2f\n", data.bme.pressure, data.bme.humidity, data.bme.airTemp);
+    printf("LUZ: %2.4f | HUM: %2.4f\n", data.adcLDR,data.adcHumidity);
     //..
 
     comms_send();

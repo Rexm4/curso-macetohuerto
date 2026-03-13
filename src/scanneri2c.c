@@ -11,14 +11,14 @@ void scanner_scan(void) {
   i2c_master_bus_config_t busConfig;
 
   memset(&busConfig, 0, sizeof(i2c_master_bus_config_t));
-  busConfig.i2c_port = I2C_NUM_0;
-  busConfig.scl_io_num = GPIO_NUM_9;
-  busConfig.sda_io_num = GPIO_NUM_8;
-  busConfig.intr_priority = 0;
-  busConfig.flags.enable_internal_pullup = 0;
-  busConfig.flags.allow_pd = 0;
-  busConfig.glitch_ignore_cnt = 7;
-  busConfig.clk_source = I2C_CLK_SRC_DEFAULT;
+  busConfig.i2c_port                     = I2C_NUM_0;
+  busConfig.scl_io_num                   = GPIO_NUM_9;
+  busConfig.sda_io_num                   = GPIO_NUM_8;
+  busConfig.intr_priority                = 0;
+  busConfig.flags.enable_internal_pullup = 1;
+  busConfig.flags.allow_pd               = 0;
+  busConfig.glitch_ignore_cnt            = 7;
+  busConfig.clk_source                   = I2C_CLK_SRC_DEFAULT;
 
   ESP_ERROR_CHECK(i2c_new_master_bus(&busConfig, &busHandle));
 
